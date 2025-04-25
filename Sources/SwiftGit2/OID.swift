@@ -40,7 +40,7 @@ public struct OID {
 
     // MARK: - Properties
 
-    let oid: git_oid
+    public let oid: git_oid
 }
 
 extension OID: CustomStringConvertible {

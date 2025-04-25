@@ -194,7 +194,7 @@ public final class Repository {
     // MARK: - Properties
 
     /// The underlying libgit2 `git_repository` object.
-    let pointer: OpaquePointer
+    public let pointer: OpaquePointer
 
     /// The URL of the repository's working directory, or `nil` if the
     /// repository is bare.
@@ -398,6 +398,7 @@ public final class Repository {
         return remoteLookup(named: remote.name) { remote in
             remote.flatMap { pointer in
                 var opts = git_fetch_options()
+                opts.prune = GIT_FETCH_PRUNE
                 let resultInit = git_fetch_init_options(&opts, UInt32(GIT_FETCH_OPTIONS_VERSION))
                 assert(resultInit == GIT_OK.rawValue)
 

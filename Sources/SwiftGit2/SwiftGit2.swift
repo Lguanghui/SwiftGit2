@@ -1,7 +1,7 @@
 import Foundation
 import libgit2
 
-public class SwiftGit2 {
+public class SwiftGit {
     private init() {}
 
     public static func initialize() -> Result<Int, NSError> {

@@ -22,10 +22,6 @@ public enum GitObjectType {
     case blob
     /// An annotated tag object.
     case tag
-    /// A delta, base is given by an offset.
-    case deltaGivenByOffset
-    /// A delta, base is given by object id.
-    case deltaGivenByObjectID
 
     init?(_ type: git_object_t) {
         switch type {
@@ -41,10 +37,6 @@ public enum GitObjectType {
             self = .blob
         case GIT_OBJECT_TAG:
             self = .tag
-        case GIT_OBJECT_OFS_DELTA:
-            self = .deltaGivenByOffset
-        case GIT_OBJECT_REF_DELTA:
-            self = .deltaGivenByObjectID
         default:
             return nil
         }
@@ -58,8 +50,6 @@ public enum GitObjectType {
         case .tree: GIT_OBJECT_TREE
         case .blob: GIT_OBJECT_BLOB
         case .tag: GIT_OBJECT_TAG
-        case .deltaGivenByOffset: GIT_OBJECT_OFS_DELTA
-        case .deltaGivenByObjectID: GIT_OBJECT_REF_DELTA
         }
     }
 }

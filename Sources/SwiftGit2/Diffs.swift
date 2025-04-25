@@ -31,8 +31,7 @@ public struct Diff {
     public var deltas = [Delta]()
 
     public struct Delta {
-        public static let type: GitObjectType = .deltaGivenByObjectID
-
+        
         public var status: Status
         public var flags: Flags
         public var oldFile: File?
